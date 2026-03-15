@@ -116,8 +116,9 @@ async def ask_ai(user_message, user_name):
         answer = gpt.generate_answer("gpt-5.2-chat", messages)
         return answer
     except Exception as e:
-        print(f"Ошибка нейросети: {e}")
-        return "Я здесь. Расскажи, что случилось?"
+        error_text = f"❌ Ошибка нейросети: {e}"
+        print(error_text)  # для логов Render
+        return error_text  # пользователь увидит это в Telegram
 
 # ===== ОБРАБОТЧИКИ КОМАНД =====
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
