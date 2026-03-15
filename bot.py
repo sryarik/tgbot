@@ -7,6 +7,15 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 
 # ===== БЕСПЛАТНАЯ НЕЙРОСЕТЬ (БЕЗ КЛЮЧЕЙ) =====
 from ekogram import OnlySQ
+# ===== ДИАГНОСТИКА =====
+print("🚀 Запуск бота...")
+try:
+    print("📦 Попытка создать объект OnlySQ...")
+    gpt = OnlySQ()
+    print("✅ OnlySQ создан успешно")
+except Exception as e:
+    print(f"❌ Ошибка при создании OnlySQ: {e}")
+    raise  # чтобы бот упал и мы увидели ошибку в логах
 
 # ===== НАСТРОЙКИ =====
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
